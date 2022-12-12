@@ -16,6 +16,7 @@
 
 package lk.ac.mrt.cse.dbs.simpleexpensemanager.data;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +36,7 @@ public interface TransactionDAO {
      * @param expenseType - type of the expense
      * @param amount      - amount involved
      */
+
     public void logTransaction(Date date, String accountNo, ExpenseType expenseType, double amount);
 
     /***
@@ -42,7 +44,7 @@ public interface TransactionDAO {
      *
      * @return - a list of all the transactions
      */
-    public List<Transaction> getAllTransactionLogs();
+    public List<Transaction> getAllTransactionLogs() throws ParseException;
 
     /***
      * Return a limited amount of transactions logged.
@@ -50,5 +52,5 @@ public interface TransactionDAO {
      * @param limit - number of transactions to be returned
      * @return - a list of requested number of transactions
      */
-    public List<Transaction> getPaginatedTransactionLogs(int limit);
+    public List<Transaction> getPaginatedTransactionLogs(int limit) throws ParseException;
 }
